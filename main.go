@@ -66,7 +66,7 @@ func main() {
 
 	cmd := exec.Command("goo", args...)
 	data, err := cmd.CombinedOutput()
-	fmt.Println(string(data))
+	fmt.Print(string(data))
 	if err != nil {
 		fmt.Println(err)
 		return

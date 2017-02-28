@@ -7,14 +7,14 @@
 
 5. 添加以下代码到项目包main
 
+========
+```go
 var (
-
 	buildDate string	
 	gitDate   string	
 	gitCommit string	
 )
 func version() {
-
 	if buildDate != "" {	
 		fmt.Println("Build date:", buildDate)		
 	}	
@@ -32,18 +32,15 @@ func version() {
 package main
 
 import (
-
 	"fmt"		
 )
 
 var (
-
 	buildDate string	
 	gitDate   string	
 	gitCommit string	
 )
 func version() {
-
 	if buildDate != "" {	
 		fmt.Println("Build date:", buildDate)		
 	}	
@@ -56,6 +53,5 @@ func version() {
 }
 
 func main() {
-
 	version()	
 }

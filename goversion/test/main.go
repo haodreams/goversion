@@ -3,7 +3,7 @@ package main
 import (
 	"goversion"
 	"log"
-	"magus/logs"
+	"gitee.com/magus_iot/magus/logs"
 )
 
 var (

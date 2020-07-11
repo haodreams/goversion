@@ -28,3 +28,7 @@ func Info() (s string) {
 	}
 	return
 }
+
+func GetBuildDate() string {
+	return buildDate
+}

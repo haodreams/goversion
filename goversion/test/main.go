@@ -3,7 +3,6 @@ package main
 import (
 	"goversion"
 	"log"
-	"gitee.com/magus_iot/magus/logs"
 )
 
 var (
@@ -14,13 +13,13 @@ var (
 
 func version() {
 	if buildDate != "" {
-		logs.Info("Build date:", buildDate)
+		log.Println("Build date:", buildDate)
 	}
 	if gitDate != "" {
-		logs.Info("Git date:", gitDate)
+		log.Println("Git date:", gitDate)
 	}
 	if gitCommit != "" {
-		logs.Info("Git version:", gitCommit)
+		log.Println("Git version:", gitCommit)
 	}
 }
 func main() {

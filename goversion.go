@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-12-07 21:16:25
  * @LastEditors: Wangjun
- * @LastEditTime: 2021-12-07 21:17:28
+ * @LastEditTime: 2021-12-07 21:26:51
  * @FilePath: \analysise:\go\go1.15.8\src\goversion\goversion.go
  * @Description:
  */
@@ -9,10 +9,13 @@ package goversion
 
 //使用说明
 /*
-1. 编译goversion
-2. 改名 %GOROOT%\bin\go.exe ==> %GOROOT%\bin\goo.exe
-3. 复制goversion.exe ==> %GOROOT%\bin\goversion.exe
-4. 改名 %GOROOT%\bin\goversion.exe ==> %GOROOT%\bin\go.exe
+使用脚本编译
+goversion 放到go环境的src目录下
+
+gobuild.sh 放到$PATH 目录
+
+bash gobuild.sh
+
 
 包必须在 %GOPATH%\src 目录下
 */

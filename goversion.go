@@ -1,3 +1,12 @@
+/*
+ * @Author: Wangjun
+ * @Date: 2022-11-04 14:49:05
+ * @LastEditTime: 2023-02-11 16:54:00
+ * @LastEditors: Wangjun
+ * @Description:
+ * @FilePath: \xdasd:\go\go1.19\src\goversion\goversion.go
+ * hnxr
+ */
 package goversion
 
 //使用说明
@@ -18,7 +27,7 @@ var (
 	version   string
 )
 
-//Info 版本信息
+// Info 版本信息
 func Info() (s string) {
 	if buildDate != "" {
 		if buildTime != "" {
@@ -40,10 +49,15 @@ func Info() (s string) {
 	return
 }
 
-//GetBuildDate 编译日期和时间
+// GetBuildDate 编译日期和时间
 func GetBuildDate() string {
 	if buildTime == "" {
 		return buildDate
 	}
 	return buildDate + " " + buildTime
+}
+
+// GetGitCommit 获取git提交信息
+func GetGitCommit() string {
+	return gitCommit
 }

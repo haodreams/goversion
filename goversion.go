@@ -53,11 +53,15 @@ func Info() (s string) {
 }
 
 // GetBuildDate 编译日期和时间
-func GetBuildDate() string {
+func GetBuildDateTime() string {
 	if buildTime == "" {
 		return buildDate
 	}
 	return buildDate + " " + buildTime
+}
+
+func GetBuildDate() string {
+	return buildDate
 }
 
 // GetGitCommit 获取git提交信息

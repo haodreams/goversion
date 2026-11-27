@@ -1,3 +1,3 @@
 module gitee.com/haodreams/goversion
 
-go 1.15
+go 1.10.0

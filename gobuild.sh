@@ -23,6 +23,7 @@ BuildTime=$(date "+%H:%M:%S")
 PluginDate=$(date "+%Y%m%d")
 PluginOS="linux"
 
+echo now: ${BuildDate} ${BuildTime}
 
 #结束调用此函数
 end(){
@@ -91,13 +92,11 @@ run(){
 #编译程序
 build(){
 	if [ -n "$GitCommit" ]; then
-		#echo go build -ldflags "-X goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X goversion.gitCommit=$GitCommit"
+		#echo go build -ldflags "-X github.com/haodreams/goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X github.com/haodreams/goversion.gitCommit=$GitCommit"
         # -extldflags -static -buildvcs=false 
-		go build -tags jsoniter -ldflags "-X goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X goversion.gitCommit=$GitCommit -X goversion.buildTime=$BuildTime -X gitee.com/haodreams/goversion.buildDate=$BuildDate -X 'gitee.com/haodreams/goversion.gitDate=$GitDate' -X gitee.com/haodreams/goversion.gitCommit=$GitCommit -X gitee.com/haodreams/goversion.buildTime=$BuildTime"
-		# go build -ldflags "-X goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X goversion.gitCommit=$GitCommit -X goversion.buildTime=$BuildTime"
+		go build -tags jsoniter -ldflags "-w -X 'github.com/haodreams/goversion.buildDate=$BuildDate' -X 'github.com/haodreams/goversion.gitDate=$GitDate' -X github.com/haodreams/goversion.gitCommit=$GitCommit -X 'github.com/haodreams/goversion.buildTime=$BuildTime' -X 'gitee.com/haodreams/goversion.buildDate=$BuildDate' -X 'gitee.com/haodreams/goversion.gitDate=$GitDate' -X gitee.com/haodreams/goversion.gitCommit=$GitCommit -X 'gitee.com/haodreams/goversion.buildTime=$BuildTime'"
 	else
-		go build -tags jsoniter -ldflags "-X goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X goversion.gitCommit=$GitCommit -X goversion.buildTime=$BuildTime -X gitee.com/haodreams/goversion.buildDate=$BuildDate -X 'gitee.com/haodreams/goversion.gitDate=$GitDate' -X gitee.com/haodreams/goversion.gitCommit=$GitCommit -X gitee.com/haodreams/goversion.buildTime=$BuildTime"
-		# go build -ldflags "-X goversion.buildDate=$BuildDate -X 'goversion.gitDate=$GitDate' -X goversion.gitCommit=$GitCommit -X goversion.buildTime=$BuildTime"
+		go build -tags jsoniter -ldflags "-w -X 'github.com/haodreams/goversion.buildDate=$BuildDate' -X 'github.com/haodreams/goversion.gitDate=$GitDate' -X github.com/haodreams/goversion.gitCommit=$GitCommit -X 'github.com/haodreams/goversion.buildTime=$BuildTime' -X 'gitee.com/haodreams/goversion.buildDate=$BuildDate' -X 'gitee.com/haodreams/goversion.gitDate=$GitDate' -X gitee.com/haodreams/goversion.gitCommit=$GitCommit -X 'gitee.com/haodreams/goversion.buildTime=$BuildTime'"
 	fi
 	
     # if [ -f "main.go" ]; then
@@ -210,7 +209,7 @@ case $# in
 				export CGO_ENABLED=0				
 				build
 				;;
-			"linuxCgo")
+			"linuxCgo"|"linux64Cgo")
 				echo "============ BUILD LINUX WITH CGO VERSION ============="
 				export GOARCH=
 				export GOOS=linux
